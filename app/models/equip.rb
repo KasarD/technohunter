@@ -1,0 +1,2 @@
+class Equip < Vehicle
+end

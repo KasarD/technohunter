@@ -1,0 +1,2 @@
+class EquipsController < VehiclesController
+end

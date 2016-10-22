@@ -1,0 +1,2 @@
+class TrucksController < VehiclesController
+end

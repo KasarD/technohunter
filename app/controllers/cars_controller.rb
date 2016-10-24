@@ -1,7 +1,7 @@
 class CarsController < VehiclesController
 
     # Расширяем функционал специально для типа легкового транспорта
-    def all_vehicles
+    def index
         @cars = Car.where(moderate: true).order("created_at DESC")
     end
     # Создание нового объекта легкового транспорта

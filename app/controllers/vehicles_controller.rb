@@ -1,12 +1,9 @@
 class VehiclesController < ApplicationController
     before_action :set_vehicle, only: [:show, :edit, :update, :destroy]
 
-    def all_vehicles
-        # Заглушка для наследования контроллеров
-    end
     def index
-        # Получаем все объекты вызванной нами модели
-        @vehicles = all_vehicles
+        # Выводим объявления независимо от их типа.
+        @vehicles = Vehicle.where(moderate: true)
     end
 
     def show
@@ -47,8 +44,8 @@ class VehiclesController < ApplicationController
 
     def destroy
         @vehicle.destroy
-        # Переходим на главную страницу
-        redirect_to :home
+        # Переходим на главную страницу соответствующего типа объявлений
+        redirect_to controller: controller_name, action: :index
     end
 
 private

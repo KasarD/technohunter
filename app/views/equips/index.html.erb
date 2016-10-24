@@ -1,0 +1,7 @@
+<h1>Просмотр легковых объявлений</h1>
+<p> Создание нового объявления: <%= link_to 'Создать', new_equip_path %>
+<ul>
+<% @equips.each do |equip| %>
+    <li> <%= equip.vehicle_type %> <%= link_to 'Просмотр', equip_path(equip.id)%> <%= link_to 'Редакт.', edit_equip_path(equip.id) %> <%= link_to 'Удалить', equip_path(equip.id), { method: :delete } %></li>
+<% end %>
+</ul>

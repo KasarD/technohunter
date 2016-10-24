@@ -1,0 +1,7 @@
+<h1>Просмотр грузовых объявлений</h1>
+<p> Создание нового объявления: <%= link_to 'Создать', new_truck_path %>
+<ul>
+<% @trucks.each do |truck| %>
+    <li> <%= truck.vehicle_type %> <%= link_to 'Просмотр', truck_path(truck.id)%> <%= link_to 'Редакт.', edit_truck_path(truck.id) %> <%= link_to 'Удалить', truck_path(truck.id), { method: :delete } %></li>
+<% end %>
+</ul>

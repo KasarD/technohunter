@@ -1,0 +1,82 @@
+<h1>Форма для оборудования</h1>
+
+<%= form_for(@vehicle) do |f| %>
+  <% if @vehicle.errors.any? %>
+    <div id="error_explanation">
+      <h2>Присутствуют следующие ошибки:</h2>
+
+      <ul>
+      <% @vehicle.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <fieldset>  
+
+    <div class="form-group">
+      <label class="col-sm-3 control-label" for="vehicle_type">Тип</label>
+      <div class="col-sm-4">
+        <%= f.select :vehicle_type, {},{:include_blank => "Выберите тип..."},{class: "form-control input-sm"} do %>
+          <% ["Медицинское","Металлообрабатывающее","Пищевое","Промышленное","Полиграфическое",
+              "Сельскохозяйственное","Торговое","Упаковочное/Разливное","Энергетическое","Другое"].each do |x| -%>
+              <%= content_tag(:option, x) %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-sm-3 control-label">Год выпуска</label>
+      <div class="col-sm-4">
+        <%= f.number_field :year, class: "form-control input-sm" %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-sm-3 control-label" for="probeg">VIN/Заводской номер:</label>
+      <div class="col-sm-4">
+        <%= f.text_field :vin_code, class: "form-control input-sm " %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-sm-3 control-label">Наработка(часов)</label>
+      <div class="col-sm-4">
+        <%= f.number_field :h_of_use, class: "form-control input-sm" %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-sm-3 control-label">Состояние</label>
+      <div class="col-sm-4">
+        <%= f.select :status, {},{},{class: "form-control input-sm"} do %>
+          <% ["Отличное","Хорошее","Удовлетворительное","Плохое"].each do |x| -%>
+            <%= content_tag(:option, x) %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-sm-3 control-label" for="offer_desc">Описание</label>
+      <div class="col-sm-4">
+        <%= f.text_area :description, class: "form-control", cols: 50, rows: 7  %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-sm-3 control-label" for="price">Цена:</label>
+      <div class="col-sm-4">
+        <%= f.text_field :price, class: "form-control input-sm" %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-4 col-lg-offset-2">
+        <%= f.submit "Создать", class: "btn btn-primary"%>
+      </div>
+    </div>
+  </fieldset>
+<% end %>

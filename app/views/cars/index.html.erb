@@ -1,0 +1,7 @@
+<h1>Просмотр легковых объявлений</h1>
+<p> Создание нового объявления: <%= link_to 'Создать', new_car_path %>
+<ul>
+<% @cars.each do |car| %>
+    <li> <%= car.vehicle_type %> <%= link_to 'Просмотр', car_path(car.id)%> <%= link_to 'Редакт.', edit_car_path(car.id) %> <%= link_to 'Удалить', car_path(car.id), { method: :delete } %></li>
+<% end %>
+</ul>

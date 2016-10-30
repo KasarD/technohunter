@@ -3,8 +3,8 @@ class EquipsController < VehiclesController
     def index
         @equips = Equip.where(moderate: true).order("created_at DESC")
     end
-    def new_vehicle
-        @equip = Equip.new
+    def new_vehicle (params)
+        @equip = Equip.new (params)
     end
 
 private

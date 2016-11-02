@@ -1,0 +1,2 @@
+$("#<%= @type %>_model_id").empty()
+  .append("<%= escape_javascript(render(partial: 'vehicles/models.html.erb', local: @models)) %>")

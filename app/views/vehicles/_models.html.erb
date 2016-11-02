@@ -1,0 +1,4 @@
+<option value=""> Выберите модель... </option>
+<% @models.each do |model| %>
+	<option value="<%= model.id %>"><%= model.name %></option>
+<% end %>

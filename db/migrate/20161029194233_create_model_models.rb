@@ -4,8 +4,6 @@ class CreateModelModels < ActiveRecord::Migration
       t.string :name
       t.string :type
       t.integer :brand_id
-
-      t.timestamps null: false
     end
   end
 end

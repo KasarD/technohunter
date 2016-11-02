@@ -12,7 +12,8 @@ private
     def vehicle_params
         params.require(:truck).permit(
             :vehicle_type, :vin_code, :year, :engine, :engine_cap,
-            :h_of_use, :status, :description, :price, :mileage
+            :h_of_use, :status, :description, :price, :mileage,
+            :region_id, :city_id, :brand_id, :model_id
         )
     end
 end

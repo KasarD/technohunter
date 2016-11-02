@@ -10,7 +10,8 @@ class EquipsController < VehiclesController
 private
     def vehicle_params
         params.require(:equip).permit(
-            :vehicle_type, :description, :status, :price, :vin_code, :year, :h_of_use
+            :vehicle_type, :description, :status, :price, :vin_code, :year, :h_of_use,
+            :region_id, :city_id, :brand_id, :model_id
         )
     end
 end

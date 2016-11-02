@@ -8,6 +8,14 @@ FactoryGirl.define do
         f.association :region, factory: :region 
     end
     
+    factory :vehicle do |f|
+        f.vehicle_type "test"
+        f.year         "1997"
+        f.price        29000
+        f.city_id      1
+        f.region_id    2
+    end
+
     factory :car do |car|
         car.vehicle_type "Седан"
         car.description  "Тестовое описание"
@@ -21,11 +29,15 @@ FactoryGirl.define do
         car.vin_code     "1234554321"
         car.year         2007
         car.association  :region, factory: :region
-        car.association  :city, factory: :city
+        car.association  :city, factory: :city      
     end
 
     factory :invalid_car, parent: :car do |car|
         car.vehicle_type nil
+    end
+
+    factory :vehicle_image do |f|
+        f.photo { File.new("#{Rails.root}/spec/support/1.jpg") }
     end
 
     factory :truck do |truck|
